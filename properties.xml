@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>myProperties</comment>
+<entry key="defailtPathBase">basedictionary/basedictionary</entry>
+<entry key="saveSettings">default</entry>
+<entry key="defaultPort">tcp://192.168.56.1:9092</entry>
+<entry key="changePort"> tcp://10.5.45.167:9092</entry>
+</properties>
