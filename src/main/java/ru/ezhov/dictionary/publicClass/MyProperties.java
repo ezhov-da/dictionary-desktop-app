@@ -1,34 +1,25 @@
 package ru.ezhov.dictionary.publicClass;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URLDecoder;
 import java.util.Properties;
 
-public class MyProperties
-{
+public class MyProperties {
     private static Properties properties = null;
 
     private static String dirPath = null;
     private static File file = null;
     private static FileInputStream fileReadre = null;
 
-
     public static String getProperties(String key)
-            throws IOException
-    {
+            throws IOException {
         set();
         String finalString = URLDecoder.decode(properties.getProperty(key), "UTF-8");
         return finalString;
     }
 
-
     public static void setProperties(String key, String value)
-            throws IOException
-    {
+            throws IOException {
         set();
         properties.setProperty(key, value);
         FileOutputStream fileWriter = new FileOutputStream(file);
@@ -36,8 +27,7 @@ public class MyProperties
     }
 
     public static void set()
-            throws FileNotFoundException, IOException
-    {
+            throws FileNotFoundException, IOException {
         properties = new Properties();
         dirPath = "basic";
         file = new File("properties.xml");
@@ -45,14 +35,12 @@ public class MyProperties
         properties.loadFromXML(fileReadre);
     }
 
-    public static String getAbsolutePathToBase()
-    {
+    public static String getAbsolutePathToBase() {
         return new File(dirPath + File.separator + properties.getProperty("defailtPathBase")).getAbsolutePath();
     }
 
     public static String dirPath()
-            throws IOException
-    {
+            throws IOException {
         set();
         return dirPath;
     }

@@ -1,30 +1,25 @@
 package ru.ezhov.dictionary.forma;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout.ParallelGroup;
-import javax.swing.GroupLayout.SequentialGroup;
-import javax.swing.JPanel;
+import javax.swing.*;
 
-public class DictionaryFrame extends javax.swing.JFrame
-{
+public class DictionaryFrame extends javax.swing.JFrame {
     public javax.swing.JButton jButtonAddNewWord;
     public javax.swing.JButton jButtonClear;
     public javax.swing.JCheckBox jCheckBoxSettings;
+    public javax.swing.JLabel jLabelMassage;
+    public javax.swing.JTabbedPane jTabbedPane;
+    public javax.swing.JTable jTableResult;
+    public javax.swing.JTextField jTextFieldPathToBase;
+    public javax.swing.JTextField jTextFieldPathToURL;
+    public javax.swing.JTextField jTextFieldWord;
+    public javax.swing.JTree jTreeBase;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabelMassage;
     private JPanel jPanel1;
     private JPanel jPanel2;
     private JPanel jPanel3;
     private JPanel jPanel4;
     private JPanel jPanel5;
-
-    public DictionaryFrame()
-    {
-        initComponents();
-    }
-
     private JPanel jPanel6;
     private JPanel jPanel7;
     private JPanel jPanel8;
@@ -32,8 +27,11 @@ public class DictionaryFrame extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
 
-    private void initComponents()
-    {
+    public DictionaryFrame() {
+        initComponents();
+    }
+
+    private void initComponents() {
         this.jPanel2 = new JPanel();
         this.jTabbedPane = new javax.swing.JTabbedPane();
         this.jPanel4 = new JPanel();
@@ -95,27 +93,21 @@ public class DictionaryFrame extends javax.swing.JFrame
         this.jPanel1.setBackground(new java.awt.Color(255, 194, 134));
         this.jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(1), "Начните вводить слово:", 0, 2));
 
-        this.jTextFieldWord.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        this.jTextFieldWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DictionaryFrame.this.jTextFieldWordActionPerformed(evt);
             }
         });
-        this.jTextFieldWord.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyReleased(java.awt.event.KeyEvent evt)
-            {
+        this.jTextFieldWord.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
                 DictionaryFrame.this.jTextFieldWordKeyReleased(evt);
             }
 
         });
         this.jButtonClear.setBackground(new java.awt.Color(204, 204, 255));
         this.jButtonClear.setCursor(new java.awt.Cursor(12));
-        this.jButtonClear.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        this.jButtonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DictionaryFrame.this.jButtonClearActionPerformed(evt);
             }
 
@@ -204,55 +196,34 @@ public class DictionaryFrame extends javax.swing.JFrame
         pack();
     }
 
-    public javax.swing.JTabbedPane jTabbedPane;
-
-    private void jTextFieldWordKeyReleased(java.awt.event.KeyEvent evt)
-    {
-        try
-        {
-            if (evt.getKeyCode() == 27)
-            {
+    private void jTextFieldWordKeyReleased(java.awt.event.KeyEvent evt) {
+        try {
+            if (evt.getKeyCode() == 27) {
                 setVisible(false);
             }
             new ru.ezhov.dictionary.dictionary.Work().fillTable(this.jTableResult, this.jTextFieldWord.getText().toLowerCase(), this.jLabelMassage);
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(DictionaryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (java.sql.SQLException ex)
-        {
+        } catch (java.sql.SQLException ex) {
             java.util.logging.Logger.getLogger(DictionaryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (java.io.IOException ex)
-        {
+        } catch (java.io.IOException ex) {
             java.util.logging.Logger.getLogger(DictionaryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
 
-    public javax.swing.JTable jTableResult;
-    public javax.swing.JTextField jTextFieldPathToBase;
-
-    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt)
-    {
+    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {
         this.jTextFieldWord.setText("");
-        try
-        {
+        try {
             new ru.ezhov.dictionary.dictionary.Work().fillTable(this.jTableResult, this.jTextFieldWord.getText().toLowerCase(), this.jLabelMassage);
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(DictionaryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (java.sql.SQLException ex)
-        {
+        } catch (java.sql.SQLException ex) {
             java.util.logging.Logger.getLogger(DictionaryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (java.io.IOException ex)
-        {
+        } catch (java.io.IOException ex) {
             java.util.logging.Logger.getLogger(DictionaryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
 
-    public javax.swing.JTextField jTextFieldPathToURL;
-    public javax.swing.JTextField jTextFieldWord;
-    public javax.swing.JTree jTreeBase;
-
-    private void jTextFieldWordActionPerformed(java.awt.event.ActionEvent evt)
-    {
+    private void jTextFieldWordActionPerformed(java.awt.event.ActionEvent evt) {
     }
 }
